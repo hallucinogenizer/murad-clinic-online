@@ -1,0 +1,21 @@
+div.header {
+background-color:#ff09d5d1;
+}
+div.heading {
+  background-color:#636363;
+}
+.blue {
+  color:blue;
+}
+.fa {
+  color:#da22bb;
+}
+.bg-primary {
+  background-color:#d500d8!important;
+}
+tr.showDetails {
+	background-color:#fb00ff30;
+}
+tr.showDetails:hover {
+	background-color:#fb00ff4a;
+}

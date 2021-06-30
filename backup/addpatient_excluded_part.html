@@ -1,0 +1,173 @@
+<form action='#'>
+
+  <div class='expand_tests' id='tr0'>
+    <span>Tests</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='10px'></span>
+  </div>
+
+
+  <div class='expand_tests second_expand' id='el0'>
+    <span>Blood Tests</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='10px'></span>
+  </div>
+
+  <div class='expanded_list' id='el1'>
+
+    <?php
+
+  foreach ($bloodtests as $onetest) {
+  echo "<div class='form-check'>
+<label class='form-check-label'>
+  <input type='checkbox' class='form-check-input' onchange='handleChange(this);'  onchange='handleChange(this);' value='" . addslashes($onetest) .  "'>" . $onetest . "
+</label>
+</div>";
+  }
+
+    ?>
+
+  </div> <!--<div class='expanded_list'> ends -->
+
+
+  <div class='expand_tests second_expand' id='tr2'>
+    <span>Urine Tests</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='10px'></span>
+  </div>
+
+  <div class='expanded_list' id='el2'>
+
+    <?php
+
+  foreach ($urinetests as $onetest) {
+  echo "<div class='form-check'>
+<label class='form-check-label'>
+  <input type='checkbox' class='form-check-input' onchange='handleChange(this);'  value='" . $onetest .  "'>" . $onetest . "
+</label>
+</div>";
+  }
+
+    ?>
+
+  </div> <!--<div class='expanded_list'> ends -->
+
+
+
+   <div class='expand_tests second_expand' id='tr3'>
+    <span>Radiology / Cardiology / Imaging</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='10px'></span>
+  </div>
+
+  <div class='expanded_list' id='el3'>
+
+    <?php
+
+  foreach ($radiotests as $onetest) {
+  echo "<div class='form-check'>
+<label class='form-check-label'>
+  <input type='checkbox' class='form-check-input' onchange='handleChange(this);'  value='" . $onetest .  "'>" . $onetest . "
+</label>
+</div>";
+  }
+
+    ?>
+
+  </div> <!--<div class='expanded_list'> ends -->
+
+
+
+   <div class='expand_tests second_expand' id='tr4' style='margin-bottom:30px;'>
+    <span>Kidney Transplant Assessment</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='9px'></span>
+  </div>
+
+      <div class='expand_tests third_expand' id='el4'>
+    <span>BOTH</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='8px'></span>
+    </div>
+
+  <div class='expanded_list' id='el5'>
+
+    <?php
+
+  foreach ($kidneyassessment[0] as $onetest) {
+  echo "<div class='form-check'>
+<label class='form-check-label'>
+  <input type='checkbox' class='form-check-input' onchange='handleChange(this);'  value='" . $onetest .  "'>" . $onetest . "
+</label>
+</div>";
+  }
+
+    ?>
+
+  </div> <!--<div class='expanded_list'> ends -->
+
+
+
+  <div class='expand_tests third_expand' id='tr6'>
+    <span>RECEPIENT</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='8px'></span>
+    </div>
+
+  <div class='expanded_list' id='el6'>
+
+    <?php
+
+  foreach ($kidneyassessment[1] as $onetest) {
+  echo "<div class='form-check'>
+<label class='form-check-label'>
+  <input type='checkbox' class='form-check-input' onchange='handleChange(this);'  value='" . $onetest .  "'>" . $onetest . "
+</label>
+</div>";
+  }
+
+    ?>
+
+  </div> <!--<div class='expanded_list'> ends -->
+
+
+
+  <div class='expand_tests third_expand' id='tr7'>
+    <span>DONOR</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='8px'></span>
+    </div>
+
+  <div class='expanded_list' id='el7'>
+
+    <?php
+
+  foreach ($kidneyassessment[2] as $onetest) {
+  echo "<div class='form-check'>
+<label class='form-check-label'>
+  <input type='checkbox' class='form-check-input' onchange='handleChange(this);'  value='" . $onetest .  "'>" . $onetest . "
+</label>
+</div>";
+  }
+
+    ?>
+
+  </div> <!--<div class='expanded_list'> ends -->
+
+
+
+  <div class='expand_tests third_expand' id='tr8'>
+    <span>ADDITIONAL </span><span style='color:#666666;'> (if needed)</span>
+      <span style='float:right;'><img src='resources/down_arrow.png' width='8px'></span>
+    </div>
+
+  <div class='expanded_list' id='el8'>
+
+    <?php
+
+  foreach ($kidneyassessment[3] as $onetest) {
+  echo "<div class='form-check'>
+<label class='form-check-label'>
+  <input type='checkbox' class='form-check-input' onchange='handleChange(this);'  value='" . $onetest .  "'>" . $onetest . "
+</label>
+</div>";
+  }
+
+    ?>
+
+  </div> <!--<div class='expanded_list'> ends -->
+
+
+  </form>
