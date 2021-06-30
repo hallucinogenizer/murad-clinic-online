@@ -1,0 +1,7 @@
+[18-Feb-2018 12:03:14 America/New_York] PHP Notice:  Trying to get property of non-object in /home/wehsdwzq/public_html/searchpatient/detailedsearch.php on line 12
+[18-Feb-2018 12:03:14 America/New_York] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/wehsdwzq/public_html/searchpatient/detailedsearch.php on line 17
+[18-Feb-2018 12:03:18 America/New_York] PHP Notice:  Trying to get property of non-object in /home/wehsdwzq/public_html/searchpatient/detailedsearch.php on line 12
+[18-Feb-2018 12:03:18 America/New_York] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/wehsdwzq/public_html/searchpatient/detailedsearch.php on line 17
+[18-Feb-2018 12:03:20 America/New_York] PHP Notice:  Trying to get property of non-object in /home/wehsdwzq/public_html/searchpatient/detailedsearch.php on line 12
+[18-Feb-2018 12:03:20 America/New_York] PHP Fatal error:  Call to a member function fetch_assoc() on boolean in /home/wehsdwzq/public_html/searchpatient/detailedsearch.php on line 17
+[18-Feb-2018 12:03:27 America/New_York] PHP Notice:  Trying to get property of non-object in /home/wehsdwzq/public_html/searchpatient/search.php on line 63

@@ -1,0 +1,39 @@
+.content_container {
+  margin-top:30px;
+  font-size:16px;
+}
+form.roohaniform input {
+  margin-right:10px;
+
+}
+#continue {
+  display:none;
+}
+#logoImageUploader {
+  display:none;
+}
+div.themeSelect {
+  width:40px;
+  height:40px;
+  transition:width 0.2s, height 0.2s;
+  -webkit-transition:width 0.2s, height 0.2s;
+  -moz-transition:width 0.2s, height 0.2s;
+  -o-transition:width 0.2s, height 0.2s;
+  cursor:pointer;
+}
+div.themeSelect:hover {
+  width:45px;
+  height:45px;
+}
+#blueSelect {
+  background-color:blue;
+}
+#orangeSelect {
+  background-color:#ffa500;
+}
+#pinkSelect {
+  background-color:#da22bb;
+}
+#greySelect {
+  background-color:#7d7d7d;
+}

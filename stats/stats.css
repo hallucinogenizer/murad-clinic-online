@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+div.header a:hover {
+	text-decoration:none;
+}
+.show {
+	margin-top:30px;
+}
+div.show p {
+	color:#00a1ff;
+}
+table.stats {
+	width:70%;
+}
+table.table-bordered {
+	border-width:3px;
+}
+.blue {
+	color:#00a1ff;
+}
+.white {
+	color:white;
+}
+.red {
+	color:#bf0000;
+}
+.hidden {
+	display:none;
+}
+
+.grey {
+  color:grey;
+}
+#patientShow {
+	font-size:14px;
+}
+#expenseShow {
+	font-size:14px;
+}
+span.date {
+	color:#298bff;
+}
+#patientdetails, #expensedetails {
+	background-color:#ffffff6b;
+}
+
+
+tr.main_info {
+	 background-color:#f5f5f5!important;
+}
+button.dateType {
+	background-color:#8c8c8c;
+	color:white;
+}
+button.dateType:hover {
+	background-color:#949494;
+	cursor:pointer;
+}

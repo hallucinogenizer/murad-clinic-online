@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+div.header a:hover {
+	text-decoration:none;
+}
+
+table.show {
+	display:block;
+	background-color:#ffffffa3;
+}
+td.image {
+	width:10%;
+}
+td.name {
+	width:20%;
+}
+td.pc {
+	width:20%;
+}
+td.treatment {
+	width:20%;
+}
+td.tests {
+	width:20%;
+}
+td.price {
+	width:10%;
+}
+div.expand_tests {
+	width:10%;
+	margin:auto;
+	text-align:center;
+	padding-left:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-right:15px;
+	background-color:#beddf3;
+	-webkit-transition:linear background-color 0.3s;
+	transition:linear background-color 0.3s;
+	-moz-transition:linear background-color 0.3s;
+	-o-transition:linear background-color 0.3s;
+}
+div.expand_tests:hover {
+	background-color:#e7f6ff;
+}
+.hidden {
+	display:none;
+}
+.show {
+	margin-top:30px;
+}

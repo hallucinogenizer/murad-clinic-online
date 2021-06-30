@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Stats - Murad Clinic</title>
+<!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel='stylesheet' href='../font-awesome/css/font-awesome.min.css'>
+
+<!-- jQuery library -->
+<script src="../bootstrap/jquery-3.2.1.min.js"></script>
+
+<script src="../bootstrap/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src='../bootstrap/js/tether.min.js'></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+<link rel='stylesheet' type='text/css' href='stats.css'>
+</head>
+
+<body style='width:100%;'>
+
+	<?php
+	//include header
+	$link = '../index.php';
+	include '../commons/header.php';
+	?>
+
+
+<div class='container'>
+
+
+		<label id='datelabel'>Choose a Date:</label>
+		<table><tr>
+			<td><button class='dateType' onClick="$('.simple').slideToggle();">One Date</button></td>
+			<td><button class='dateType' onClick="$('#multiDatePicker').slideToggle();">From one Date to Another</button></td>
+		</tr></table>
+
+		<form method='get' action='index.php' class='show' class="form-inline">
+			<div id='multiDatePicker' class='hidden'>
+				<p>Choose the starting date and ending date of your range. You will be shown combined statistics for all the days that lie within that range.</p>
+				<input type='hidden' name='range'>
+				<label for='from'>From:</label><input type='date' name='from' class='from form-control'><br>
+				<label for='to'>To:</label><input type='date' name='to' class='to form-control'>
+				<input type='submit' class='btn btn-primary'>
+		</div>
+	</form>
+
+
+
+	<form method='get' action='index.php' class='show' class="form-inline">
+		<div class='hidden simple'>
+		<input type='date' name='date' class='form-control' class='hidden'>
+		</div>
+		<div class='hidden simple'>
+		<input type='submit' class='btn btn-primary'>
+	</form>
+	</div>
+	</form>
+
+<table><!--main positioning table-->
+	<tr><td width='100%'>
+
+<?php
+$servername = 'localhost';
+$username = 'imtiaz';
+$password = 'imtiazmuradclinic';
+$dbname = 'db_murad';
+$conn = new mysqli($servername, $username, $password, $dbname);
+$form=true;//for form validation
+
+if ($conn->connect_error) {
+	die("Failed");
+} else {
+	if (!isset($_GET['range']) && isset($_GET['date'])) {
+		//if he wants single date
+		if ($_GET['date']!='') {
+			//if the date is not empty
+
+			$sql = "SELECT `PRICE`,`SEX` FROM `patients` WHERE `DATE`=CURDATE() ORDER BY `ID` DESC LIMIT 0,9999999999999999999";
+		} else if($_GET['date']=='') {
+
+			//if the single date is empty
+			$form=false;
+		}
+	} else if (isset($_GET['range']) && isset($_GET['to']) && isset($_GET['from'])) {
+		//if he wants a range of dates
+			if ($_GET['from']!='' && $_GET['to']!='') {
+				//if the two dates aren't empty
+					$from = $_GET['from'];
+					$to = $_GET['to'];
+					$sql = "SELECT `PRICE`,`SEX` FROM `patients` WHERE `DATE` BETWEEN '$from' AND '$to' ORDER BY `ID` DESC LIMIT 0,9999999999999999999";
+} else {
+	//else if one of the two date fields is not set
+	$form=false;
+}
+	if ($form==true) {
+	$result = $conn->query($sql);
+	$counts=0;
+	$total = 0;
+	$male = 0;
+	$female = 0;
+	$other = 0;
+    while($row = $result->fetch_assoc()) {
+		$counts+=1;
+		$total+=$row['PRICE'];
+		if($row['SEX']=='Male') {$male+=1;} else if ($row['SEX']=='Female') {$female +=1;} else if ($row['SEX']=='Other') {$other +=1;}
+    }
+		echo "<div class='show'><p style='font-size:14px;margin-bottom:-20px;'><i class='fa fa-clock-o' aria-hidden='true'></i> Currently displaying stats for date ";
+		if (isset($_GET['date'])) {
+		echo "<b>" . $_GET['date'] . "</b></p><br>";
+	} else {
+		echo "<b>" . date("Y-m-d") . "</b></p><br>";
+	}
+		echo "<h4><i class='fa fa-bed' aria-hidden='true'></i> Patient Stats</h4>";
+		echo "<table class='table table-bordered stats'>";
+		echo "<tr>
+		<td>
+		<span class='fa-stack'>
+		<i class='fa fa-circle fa-stack-2x blue fa-fw' aria-hidden='true'></i>
+		<i class='fa fa-users fa-stack-1x white fa-fw' aria-hidden='true'></i>
+		</span>
+		  Total Patients</td><td>" . $counts . "</td></tr>
+
+
+			<tr>
+			<td>
+			<i class='fa fa-male blue fa-fw' aria-hidden='true'></i>
+			</span>
+			Male Patients</td><td>" . $male . "</td>
+			</tr>
+
+
+			<tr>
+			<td>
+			<i class='fa fa-female blue fa-fw' aria-hidden='true'></i>
+			</span>
+			Female Patients</td><td>" . $female . "</td>
+			</tr>
+
+			<tr>
+			<td>
+			<i class='fa fa-transgender-alt blue fa-fw' aria-hidden='true'></i>
+			</span>
+			Other Sex Patients</td><td>" . $other . "</td>
+			</tr>
+
+
+			<tr>
+			<td>
+			<span class='fa-stack'>
+			<i class='fa fa-circle fa-stack-2x blue fa-fw' aria-hidden='true'></i>
+			<i class='fa fa-money fa-stack-1x white fa-fw' aria-hidden='true'></i>
+			</span>
+			Total Charged</td><td>" . $total . "</td>
+			</tr></table>";
+			echo "<h4><i class='fa fa-credit-card' aria-hidden='true'></i> Expense Stats</h4>";
+			echo "<table class='table table-bordered stats'>";
+		if (!isset($_GET['date'])) {
+			$sql2 = "SELECT `EXPENSE`,`DATE`,`TYPE` FROM `expense` WHERE DATE=CURDATE()";
+} else {
+	if ($_GET['date']!=null) {
+			$date = $_GET['date'];
+			$sql2 = "SELECT `EXPENSE`,`DATE`,`TYPE` FROM `expense` WHERE `DATE`='$date'";
+	}//if date is not null
+}
+	$result2 = $conn->query($sql2);
+	$totalexpense = 0;
+	$expenses = array(array(),array());
+	//the first subarray is for totalling TYPE, the second for EXPENSE, the third for DATE and the first and third are wordkey-value arrays
+	$count=0;
+	while($row2 = $result2->fetch_assoc()) {
+		$totalexpense += $row2['EXPENSE'];
+		if (!isset($expenses[0][$row2['TYPE']])) {
+			$expenses[0][$row2['TYPE']]=0;
+		}
+		$expenses[0][$row2['TYPE']] +=$row2['EXPENSE']; //EXPENSE
+		if (array_key_exists('DATE',$expenses[1])) {
+		$expenses[1]['DATE'] +=$row2['EXPENSE']; //DATE
+	} else {$expenses[1]['DATE']=0;}
+
+		$count+=1;
+	}
+	echo "<tr>";
+	foreach($expenses[0] as $key => $value) {
+	echo "<tr><td>
+	<i class='fa fa-usd fa-fw blue' aria-hidden='true'></i>" . $key . "</td><td>" . $value . "</td></tr>";
+}
+	echo "<td>
+	<span class='fa-stack'>
+	<i class='fa fa-circle fa-stack-2x blue fa-fw' aria-hidden='true'></i>
+	<i class='fa fa-shopping-cart fa-stack-1x white fa-fw' aria-hidden='true'></i>
+	</span>
+	Total Expense</td><td>" . $totalexpense . "</td></tr>";
+	$net = $total - $totalexpense;
+	echo "<tr>
+	<td>
+	<span class='fa-stack'>
+	<i class='fa fa-circle fa-stack-2x blue fa-fw' aria-hidden='true'></i>
+	<i class='fa fa-balance-scale fa-stack-1x white fa-fw' aria-hidden='true'></i>
+	</span>
+	<b>Net Profit</b></td><td><b>" . $net . "</b></td></tr>
+	";
+	echo "</table></div>";
+$conn->close();
+
+} else {
+	//else if form inputs had errors
+		echo "Please enter the dates correctly";
+	}
+
+?>
+</td><!--main positioning table-->
+<td></td></tr>
+</table><!--main positioning table-->
+</div>
+
+</body>
+</html>
