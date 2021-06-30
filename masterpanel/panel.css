@@ -1,0 +1,21 @@
+div.container {
+	padding-left:100px;
+	padding-right:100px;
+	padding-top:50px;
+	padding-bottom:50px;
+}
+#logout_button {
+  cursor:pointer;
+  position:absolute;
+  text-align:right;
+  right:10px;
+  padding:3px;
+  color:white;
+}
+#logout_button:hover {
+  background-color:rgba(255, 255, 255, 0.21);
+}
+#logout_button i {
+  font-size:16px;
+  color:red;
+}

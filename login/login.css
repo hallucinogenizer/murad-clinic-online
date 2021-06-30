@@ -1,0 +1,38 @@
+/*body {
+  background-image:url('../resources/background3.jpg');
+}*/
+div.login {
+  width:auto;
+  padding:50px;
+  padding-top:50px;
+  padding-bottom:50px;
+  position:absolute;
+  right:5%;
+  top:20%;
+  background-color:rgba(255, 255, 255, 0.31);
+  border-radius:20px;
+}
+div.login a {
+  color:#00315a;
+}
+div.intro_text {
+  width:400px;
+  color:white;
+  position:absolute;
+  left:5%;
+  top:20%;
+  cursor:context-menu;
+}
+div.intro_text h1 {
+  font-size:90px;
+}
+.signup_button {
+  background-color:transparent;
+  border: 1px solid #0275d8;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.signup_button:hover {
+  background-color:#0275d82e;
+  cursor:pointer;
+}

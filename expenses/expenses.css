@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	font-family:Arial;
+}
+.fa {
+	font-size:90px;
+}
+
+div.header a:hover {
+	text-decoration:none;
+}
+div.main_item {
+	background-color:#ffffffd1;
+	width:230px;
+	height:202px;
+	transition:transform 0.1s;
+	-webkit-transition:-webkit-transform 0.1s;
+	-moz-transition:-moz-transform 0.1s;
+	-o-transition:-o-transform 0.1s;
+	border-radius:20px;
+	text-align:center;
+	padding-top:40px;
+	display:block;
+	cursor:pointer;
+	color:black;
+}
+div.main_item:hover {
+	transform:scale(1.1,1.1);
+	-webkit-transform:scale(1.1,1.1);
+	-moz-transform:scale(1.1,1.1);
+	-o-transform:scale(1.1,1.1);
+	background-color:white;
+}
+div.main_item p {
+	font-family: Century Gothic;
+    display: block;
+    margin-top: 20px;
+}
+table.main_item {
+	margin-top:5%;
+}
+#add_expense {
+	display:none;
+	margin-top:30px;
+}
+#add_expense label {
+margin-left:5px;
+}
+.hidden {
+	display:none;
+}
+#datefield {
+	width:20%!important;
+}
+table.show {
+	background-color:#ffffff70;
+}

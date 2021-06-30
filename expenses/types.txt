@@ -1,0 +1,1 @@
+<option value='Lab'>Lab</option><option value='Utility Bills'>Utility Bills</option><option value='Equipment'>Equipment</option><option value='Medicine'>Medicine</option><option value='Staff Salary'>Staff Salary</option><option value='Miscellaneous'>Miscellaneous</option>
